@@ -25,7 +25,7 @@ namespace ExpenseTracker.Api.Controllers
         [HttpGet]
         //[Route("categories")]
         [Route(RouteConstants.Categories)]
-        public async Task<IActionResult> GetAllCategories()
+        public async Task<IActionResult> ReadCategories()
         {
             try
             {
@@ -42,6 +42,31 @@ namespace ExpenseTracker.Api.Controllers
             }
         }
 
+        /// <summary>
+        /// URL: http://localhost:6600/api/expense-tracker/categories/{key}
+        /// </summary>
+        /// <param name="key">Primary key of the entity.</param> 
+        [HttpGet]
+        //[Route("category/key/{id}")]
+        [Route(RouteConstants.CategoryByKey + "{key}")]
+        public async Task<IActionResult> ReadCategoryByKey(int key)
+        {
+            try
+            {
+                if (key <= 0)
+                    return StatusCode(StatusCodes.Status400BadRequest);
 
+                var category = await context.Categories.FindAsync(key);
+
+                if (category == null)
+                    return StatusCode(StatusCodes.Status404NotFound);
+
+                return Ok(category);
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }
