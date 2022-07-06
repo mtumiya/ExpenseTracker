@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.Infrastructure;
+﻿using ExpenseTracker.Domain.Entities;
+using ExpenseTracker.Infrastructure;
 using ExpenseTracker.Utilities.Constants;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,6 @@ namespace ExpenseTracker.Api.Controllers
         /// http://localhost:6600/api/expense-tracker/categories/
         /// </summary> 
         [HttpGet]
-        //[Route("categories")]
         [Route(RouteConstants.Categories)]
         public async Task<IActionResult> ReadCategories()
         {
@@ -47,7 +47,6 @@ namespace ExpenseTracker.Api.Controllers
         /// </summary>
         /// <param name="key">Primary key of the entity.</param> 
         [HttpGet]
-        //[Route("category/key/{id}")]
         [Route(RouteConstants.CategoryByKey + "{key}")]
         public async Task<IActionResult> ReadCategoryByKey(int key)
         {
@@ -66,6 +65,57 @@ namespace ExpenseTracker.Api.Controllers
             catch
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        /// <summary>
+        /// URL: http://localhost:6600/api/expense-tracker/categories/create
+        /// </summary>
+        /// <param name="category">Category object.</param>
+        [HttpPost]
+        [Route(RouteConstants.CreateCategory)]
+        public async Task<IActionResult> CreateCategory(Category category)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                    return StatusCode(StatusCodes.Status400BadRequest);
+
+                if (await IsCategoryDuplicate(category))
+                    return StatusCode(StatusCodes.Status400BadRequest);
+
+                context.Categories.Add(category);
+                await context.SaveChangesAsync();
+
+                return CreatedAtAction("ReadCategoryByKey", new { key = category.CategoryID }, category);
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        /// <summary>
+        /// Verifying the category name is duplicate or not.
+        /// </summary>
+        /// <param name="category">Category object.</param>
+        /// <returns>Boolean</returns>
+        private async Task<bool> IsCategoryDuplicate(Category category)
+        {
+            try
+            {
+                var categoryInDb = await context.Categories
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(c => c.CategoryName.ToLower() == category.CategoryName.ToLower());
+
+                if (categoryInDb != null)
+                    return true;
+
+                return false;
+            }
+            catch
+            {
+                throw;
             }
         }
     }

@@ -14,5 +14,6 @@ namespace ExpenseTracker.Utilities.Constants
         public const string CategoriesController = "/api/expense-tracker/";
         public const string Categories = "categories";
         public const string CategoryByKey = "categories/key/";
+        public const string CreateCategory = "categories/create/";
     }
 }
