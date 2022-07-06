@@ -10,7 +10,7 @@ namespace ExpenseTracker.Infrastructure
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = "Data Source=localhost; Database=ExpenseTracker; Trusted_Connection=true";
+            string connectionString = "Database=localhost;Database=ExpenseTracker;Trusted_Connection=True;";
             optionsBuilder.UseSqlServer(connectionString);
         }
     }

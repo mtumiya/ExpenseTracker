@@ -2026,11 +2026,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Api\\ExpenseTracker.Api.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Api\\ExpenseTracker.Api.csproj",
       "projectName": "ExpenseTracker.Api",
-      "projectPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Api\\ExpenseTracker.Api.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Api\\ExpenseTracker.Api.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Api\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2047,11 +2047,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Infrastructure\\ExpenseTracker.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Infrastructure\\ExpenseTracker.Infrastructure.csproj"
+            "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Infrastructure\\ExpenseTracker.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Infrastructure\\ExpenseTracker.Infrastructure.csproj"
             },
-            "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Utilities\\ExpenseTracker.Utilities.csproj": {
-              "projectPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Utilities\\ExpenseTracker.Utilities.csproj"
+            "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Utilities\\ExpenseTracker.Utilities.csproj": {
+              "projectPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Utilities\\ExpenseTracker.Utilities.csproj"
             }
           }
         }

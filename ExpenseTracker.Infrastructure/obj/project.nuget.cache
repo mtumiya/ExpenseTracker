@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sG8pa1WKQ2e2CG1wqxPN78bXt4wEiuVaLrei9OYeePJ1MVftPl0RQHo46aRARo1Q4DyhLzOkWv9s9Tw9yaPCKw==",
+  "dgSpecHash": "BxO0BFW6Yy9r7lldLGSKVJSCqV2l7v/CyDEHfP4I9BYy6F6kodi6NEequc8BS25tiWRWOrYol9JzG+y4BizH7g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Infrastructure\\ExpenseTracker.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Infrastructure\\ExpenseTracker.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

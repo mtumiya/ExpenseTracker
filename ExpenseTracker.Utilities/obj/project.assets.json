@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Utilities\\ExpenseTracker.Utilities.csproj",
+      "projectUniqueName": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Utilities\\ExpenseTracker.Utilities.csproj",
       "projectName": "ExpenseTracker.Utilities",
-      "projectPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Utilities\\ExpenseTracker.Utilities.csproj",
+      "projectPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Utilities\\ExpenseTracker.Utilities.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker\\ExpenseTracker.Utilities\\obj\\",
+      "outputPath": "C:\\Users\\user\\Documents\\.NET\\ExpenseTracker\\ExpenseTracker.Utilities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
