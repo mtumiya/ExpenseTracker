@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ExpenseTracker.Utilities.Constants
+﻿namespace ExpenseTracker.Utilities.Constants
 {
     public static class RouteConstants
     {
         /// <summary>
-        /// Category Routes.
+        /// CategoryController Routes.
         /// </summary>
         public const string CategoriesController = "/api/expense-tracker/";
         public const string Categories = "categories";
@@ -17,5 +11,15 @@ namespace ExpenseTracker.Utilities.Constants
         public const string CreateCategory = "categories/create/";
         public const string UpdateCategory = "categories/update/";
         public const string DeleteCategory = "categories/delete/";
+
+        /// <summary>
+        /// ExpenseController Routes.
+        /// </summary>
+        public const string ExpensesController = "/api/expense-tracker/";
+        public const string Expenses = "expenses";
+        //public const string CategoryByKey = "categories/";
+        //public const string CreateCategory = "categories/create/";
+        //public const string UpdateCategory = "categories/update/";
+        //public const string DeleteCategory = "categories/delete/";
     }
 }

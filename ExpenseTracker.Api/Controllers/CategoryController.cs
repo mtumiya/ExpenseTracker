@@ -3,7 +3,6 @@ using ExpenseTracker.Infrastructure;
 using ExpenseTracker.Utilities.Constants;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ExpenseTracker.Api.Controllers
 {
