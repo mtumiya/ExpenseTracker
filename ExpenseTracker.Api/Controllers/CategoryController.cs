@@ -96,6 +96,37 @@ namespace ExpenseTracker.Api.Controllers
         }
 
         /// <summary>
+        /// URL: http://localhost:6600/api/expense-tracker/categories/update
+        /// </summary>
+        /// <param name="category">Category object.</param>
+        [HttpPut]
+        [Route(RouteConstants.UpdateCategory + "{id}")]
+        public async Task<IActionResult> UpdateCategory(int id, Category category)
+        {
+            try
+            {
+                if (id != category.CategoryID)
+                    return StatusCode(StatusCodes.Status400BadRequest);
+
+                if (!ModelState.IsValid)
+                    return StatusCode(StatusCodes.Status400BadRequest);
+
+                if (await IsCategoryDuplicate(category))
+                    return StatusCode(StatusCodes.Status400BadRequest);
+
+                context.Entry(category).State = EntityState.Modified;
+                context.Categories.Update(category);
+                await context.SaveChangesAsync();
+
+                return StatusCode(StatusCodes.Status204NoContent);
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        /// <summary>
         /// Verifying the category name is duplicate or not.
         /// </summary>
         /// <param name="category">Category object.</param>

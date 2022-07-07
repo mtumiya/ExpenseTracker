@@ -15,5 +15,6 @@ namespace ExpenseTracker.Utilities.Constants
         public const string Categories = "categories";
         public const string CategoryByKey = "categories/key/";
         public const string CreateCategory = "categories/create/";
+        public const string UpdateCategory = "categories/update/id/";
     }
 }
