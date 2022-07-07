@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ExpenseTracker.Infrastructure.Migrations
 {
     [DbContext(typeof(ExpenseTrackerContext))]
-    [Migration("20220706071640_CreateEntity.Category")]
+    [Migration("20220707090637_CreateEntity.Category")]
     partial class CreateEntityCategory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,53 +46,6 @@ namespace ExpenseTracker.Infrastructure.Migrations
                     b.HasKey("CategoryID");
 
                     b.ToTable("Categories");
-                });
-
-            modelBuilder.Entity("ExpenseTracker.Domain.Entities.Expense", b =>
-                {
-                    b.Property<int>("ExpenseID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExpenseID"), 1L, 1);
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("CategoryID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("DateCreated")
-                        .HasColumnType("smalldatetime");
-
-                    b.Property<DateTime?>("DateModified")
-                        .HasColumnType("smalldatetime");
-
-                    b.Property<DateTime?>("ExpenseDate")
-                        .IsRequired()
-                        .HasColumnType("smalldatetime");
-
-                    b.HasKey("ExpenseID");
-
-                    b.HasIndex("CategoryID");
-
-                    b.ToTable("Expenses");
-                });
-
-            modelBuilder.Entity("ExpenseTracker.Domain.Entities.Expense", b =>
-                {
-                    b.HasOne("ExpenseTracker.Domain.Entities.Category", "Category")
-                        .WithMany("Expenses")
-                        .HasForeignKey("CategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("ExpenseTracker.Domain.Entities.Category", b =>
-                {
-                    b.Navigation("Expenses");
                 });
 #pragma warning restore 612, 618
         }

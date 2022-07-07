@@ -3,6 +3,7 @@ using ExpenseTracker.Infrastructure;
 using ExpenseTracker.Utilities.Constants;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ExpenseTracker.Api.Controllers
 {
@@ -100,7 +101,7 @@ namespace ExpenseTracker.Api.Controllers
         /// </summary>
         /// <param name="category">Category object.</param>
         [HttpPut]
-        [Route(RouteConstants.UpdateCategory + "{id}")]
+        [Route(RouteConstants.UpdateCategory)]
         public async Task<IActionResult> UpdateCategory(int id, Category category)
         {
             try
@@ -123,6 +124,62 @@ namespace ExpenseTracker.Api.Controllers
             catch
             {
                 return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        /// <summary>
+        /// URL: http://localhost:6600/api/expense-tracker/categories/delete/{key}
+        /// </summary>
+        /// <param name="category">Category object.</param>
+        [HttpDelete]
+        [Route(RouteConstants.DeleteCategory + "{key}")]
+        public async Task<IActionResult> DeleteCategory(int key)
+        {
+            try
+            {
+                var category = await context.Categories.FindAsync(key);
+
+                if (key <= 0)
+                    return StatusCode(StatusCodes.Status400BadRequest);
+
+                if (category == null)
+                    return StatusCode(StatusCodes.Status404NotFound);
+
+                if (await IsCategoryInUse(category))
+                    return StatusCode(StatusCodes.Status400BadRequest);
+
+                context.Categories.Remove(category);
+                await context.SaveChangesAsync();
+
+                return Ok(category);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+
+        /// <summary>
+        /// Verifying the category is in use or not.
+        /// </summary>
+        /// <param name="category">Category object.</param>
+        /// <returns>Bool</returns>
+        private async Task<bool> IsCategoryInUse(Category category)
+        {
+            try
+            {
+                var asset = await context.Expenses
+                    .AsNoTracking()
+                    .FirstOrDefaultAsync(a => a.CategoryID == category.CategoryID);
+
+                if (asset != null)
+                    return true;
+
+                return false;
+            }
+            catch
+            {
+                throw;
             }
         }
 
