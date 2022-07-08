@@ -17,9 +17,9 @@
         /// </summary>
         public const string ExpensesController = "/api/expense-tracker/";
         public const string Expenses = "expenses";
-        public const string ExpenseByKey = "expenses/";
-        //public const string CreateCategory = "categories/create/";
-        //public const string UpdateCategory = "categories/update/";
-        //public const string DeleteCategory = "categories/delete/";
+        public const string ReadCategoryByKey = "expenses/";
+        public const string CreateExpense = "expenses/create/";
+        public const string UpdateExpense = "expenses/update/";
+        public const string DeleteExpense = "expenses/delete/";
     }
 }
